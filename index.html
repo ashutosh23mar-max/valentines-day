@@ -150,11 +150,9 @@
 
     <section class="result" id="result">
       <h2>YAY! 🎉</h2>
-      <img
-        class="fireworks"
-        src="https://media.giphy.com/media/26ufdipQqU2lhNA4g/giphy.gif"
-        alt="Fireworks"
-      />
+      <video class="fireworks" autoplay loop muted playsinline>
+    	<source src="ad-dance.mp4" type="video/mp4">
+  	</video>
     </section>
   </main>
 
@@ -256,17 +254,29 @@
 
     noBtn.addEventListener("click", e => e.preventDefault());
 
-    /* ---------- YES CLICK ---------- */
+   /* ---------- YES CLICK ---------- */
     yesBtn.addEventListener("click", () => {
+      // 1. Hide the buttons and hint (Original behavior)
       zone.style.display = "none";
-      hint.style.display = "none";     // HIDE THE HINT
+      hint.style.display = "none";
+
+      // 2. NEW: Hide the "Will you be my valentine?" text
+      document.querySelector("h1").style.display = "none";
+
+      // 3. NEW: Hide the first video (the asking video)
+      document.querySelector(".art").style.display = "none";
+
+      // 4. Show the result (YAY + Dancing Video)
       result.style.display = "block";
+      
+      // 5. Trigger Confetti
       resizeConfettiCanvas();
       fullScreenConfetti();
     });
   </script>
 </body>
 </html>
+
 
 
 
